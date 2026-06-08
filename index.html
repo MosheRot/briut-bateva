@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>בריאות בטבע</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="bg.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --green-dark: #1a3d2b;
+      --green-mid: #2d6a4f;
+      --green-accent: #52b788;
+      --cream: #f9f6f0;
+      --text: #1a1a1a;
+      --gray: #6b6b6b;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(26, 61, 43, 0.92);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 48px;
+      z-index: 999;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+    }
+    .nav-logo-text {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+    .nav-logo-text span { color: var(--gold); }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 36px;
+    }
+    nav ul a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color .2s;
+      position: relative;
+    }
+    nav ul a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; right: 0;
+      width: 0; height: 1.5px;
+      background: var(--gold);
+      transition: width .3s;
+    }
+    nav ul a:hover { color: var(--gold); }
+    nav ul a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--green-dark) !important;
+      padding: 9px 22px;
+      border-radius: 30px;
+      font-weight: 700 !important;
+      transition: background .25s, transform .2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 20px 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,28,18,0.62) 0%, rgba(10,28,18,0.45) 60%, rgba(10,28,18,0.7) 100%);
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero-logo {
+      width: 120px; height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 40px rgba(201,168,76,0.35);
+      margin-bottom: 28px;
+    }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-line {
+      width: 60px; height: 2px;
+      background: var(--gold);
+      margin: 0 auto 22px;
+      border-radius: 2px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 560px;
+      margin-inline: auto;
+      font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--green-dark);
+      padding: 15px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .25s, transform .2s, box-shadow .25s;
+      box-shadow: 0 6px 24px rgba(201,168,76,0.4);
+      letter-spacing: 0.3px;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 10px 32px rgba(201,168,76,0.5); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid rgba(255,255,255,0.6);
+      color: var(--white);
+      padding: 13px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color .25s, background .25s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+
+    /* ── DIVIDER ── */
+    .gold-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 0 20px;
+      margin: 0 auto;
+      max-width: 300px;
+    }
+    .gold-divider::before,
+    .gold-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .gold-divider span { color: var(--gold); font-size: 1.2rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 20px; }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .section-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-inline: auto;
+      font-weight: 300;
+    }
+    .text-center { text-align: center; }
+
+    /* ── TREATMENTS ── */
+    #treatments { background: var(--white); }
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1140px;
+      margin: 60px auto 0;
+    }
+    .treatment-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 38px 28px;
+      text-align: center;
+      border: 1px solid rgba(201,168,76,0.2);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(to left, var(--gold-light), var(--gold));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .treatment-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(26,61,43,0.1); border-color: rgba(201,168,76,0.4); }
+    .treatment-card:hover::before { opacity: 1; }
+    .treatment-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .treatment-card h3 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .treatment-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('bg.png') center / cover no-repeat;
+      opacity: 0.08;
+    }
+    #testimonials .section-title { color: var(--white); }
+    #testimonials .section-sub { color: rgba(255,255,255,0.6); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 60px auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(8px);
+      transition: transform .3s, border-color .3s;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.5); }
+    .stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 3px; }
+    .testimonial-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.8; margin-bottom: 18px; font-weight: 300; font-style: italic; }
+    .testimonial-card strong { color: var(--gold); font-size: 0.88rem; font-weight: 600; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--cream); }
+    .contact-wrapper {
+      max-width: 600px;
+      margin: 60px auto 0;
+      background: var(--white);
+      border-radius: 28px;
+      padding: 50px 44px;
+      border: 1px solid rgba(201,168,76,0.2);
+      box-shadow: 0 20px 60px rgba(26,61,43,0.08);
+    }
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: 7px;
+      letter-spacing: 0.5px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 12px;
+      border: 1.5px solid #e0ddd6;
+      background: var(--cream);
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: var(--white);
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: 'Heebo', sans-serif;
+      cursor: pointer;
+      transition: opacity .25s, transform .2s, box-shadow .25s;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 24px rgba(26,61,43,0.25);
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(26,61,43,0.35); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      width: 62px; height: 62px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      z-index: 999;
+      transition: transform .25s, box-shadow .25s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 10px 32px rgba(37,211,102,0.55); }
+    .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1f15;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 36px 20px;
+      font-size: 0.88rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    footer strong { color: var(--gold); }
+    .footer-logo {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.4);
+      margin: 0 auto 14px;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 12px 20px; }
+      nav ul { display: none; }
+      .contact-wrapper { padding: 32px 22px; }
+      .hero-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="תמונה של לב עם עלים.jpg" alt="לוגו">
+      <div class="nav-logo-text">בריאות <span>בטבע</span></div>
+    </div>
+    <ul>
+      <li><a href="#treatments">טיפולים</a></li>
+      <li><a href="#testimonials">המלצות</a></li>
+      <li><a href="#contact" class="nav-cta">קביעת תור</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="bg.png" alt="" class="hero-bg">
+    <div class="hero-inner">
+      <img src="תמונה של לב עם עלים.jpg" alt="לוגו בריאות בטבע" class="hero-logo">
+      <div class="hero-tag">טיפולים הוליסטיים &amp; ריפוי טבעי</div>
+      <h1>ריפוי טבעי<br><em>לנפש ולגוף</em></h1>
+      <div class="hero-line"></div>
+      <p>נטורופתיה, הילינג, עיסויים, אבני ריפוי וטיפולים רגשיים — חוויה טיפולית מושלמת המותאמת אישית עבורך</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-gold">✨ קביעת תור</a>
+        <a href="#treatments" class="btn-outline">גלה את הטיפולים</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TREATMENTS -->
+  <section id="treatments">
+    <div class="text-center">
+      <div class="section-label">הטיפולים שלנו</div>
+      <h2 class="section-title">מה אנחנו מציעים?</h2>
+      <p class="section-sub">מגוון טיפולים טבעיים מושלמים, מותאמים אישית לכל גיל וצורך</p>
+    </div>
+    <div class="treatments-grid">
+      <div class="treatment-card">
+        <span class="treatment-icon">🌱</span>
+        <h3>נטורופתיה</h3>
+        <p>אבחון וטיפול טבעי בגוף דרך תזונה, צמחי מרפא ואורח חיים בריא ומאוזן.</p>
+      </div>
+      <div class="treatment-card">
+        <span class="treatment-icon">✨</span>
+        <h3>הילינג</h3>
+        <p>העברת אנרגיה מרפאת לאיזון עמוק של גוף, נפש ורוח בצורה עדינה ורבת עוצמה.</p>
+      </div>
+      <div class="treatment-card">
+        <span class="treatment-icon">💎</span>
+        <h3>אבני ריפוי</h3>
+        <p>שימוש בגביש ואבנים טבעיות לאיזון אנרגטי, שחרור חסימות ופתיחת מרכזי אנרגיה.</p>
+      </div>
+      <div class="treatment-card">
+        <span class="treatment-icon">🤲</span>
+        <h3>עיסויים</h3>
+        <p>עיסוי מרגיע ומשחרור שמשלב טכניקות מהמזרח ומהמערב לגוף רענן ומרוגע.</p>
+      </div>
+      <div class="treatment-card">
+        <span class="treatment-icon">🌸</span>
+        <h3>טיפולי פנים</h3>
+        <p>טיפולי פנים טבעיים עם חומרים אורגניים טהורים לעור זוהר, בריא ומחודש.</p>
+      </div>
+      <div class="treatment-card">
+        <span class="treatment-icon">💚</span>
+        <h3>טיפולים רגשיים</h3>
+        <p>עיבוד רגשי וליווי נפשי לשחרור דפוסים ישנים ובניית כוחות פנימיים חדשים.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="text-center" style="position:relative;z-index:1">
+      <div class="section-label">לקוחות מרוצים</div>
+      <h2 class="section-title">מה אומרים עלינו?</h2>
+      <p class="section-sub">חוויות אמיתיות של אנשים שעברו שינוי אמיתי</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"חוויה מדהימה! טיפול ההילינג שינה אותי מבפנים. הגעתי עם תחושת כבדות ויצאתי קלה ומלאת אנרגיה."</p>
+        <strong>— מיכל כ., 26</strong>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"הנטורופתיה כאן היא ברמה אחרת לגמרי. קיבלתי תוכנית מותאמת אישית ותוצאות מדהימות תוך שבועיים!"</p>
+        <strong>— יוסי ל., 22</strong>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"אחרי העיסוי הראשון הבנתי שמצאתי את המקום שלי. מקצוענות, חום ואווירה מדהימה בכל ביקור."</p>
+        <strong>— נועה ר., 29</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="text-center">
+      <div class="section-label">צרו קשר</div>
+      <h2 class="section-title">מוכנים להתחיל?</h2>
+      <p class="section-sub">מלאו את הטופס ונחזור אליכם בהקדם לתיאום תור אישי</p>
+    </div>
+    <div class="contact-wrapper">
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="הכנס/י שם מלא" required />
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="050-0000000" required />
+        </div>
+        <div class="form-group">
+          <label>סוג טיפול</label>
+          <select required>
+            <option value="">בחר/י טיפול</option>
+            <option>נטורופתיה</option>
+            <option>הילינג</option>
+            <option>אבני ריפוי</option>
+            <option>עיסוי</option>
+            <option>טיפול פנים</option>
+            <option>טיפול רגשי</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>הערות (אופציונלי)</label>
+          <textarea placeholder="ספר/י לנו קצת על עצמך ועל מה שחשוב לך..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">שליחת פנייה ✉️</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="תמונה של לב עם עלים.jpg" alt="לוגו" class="footer-logo">
+    <p>© 2026 <strong>בריאות בטבע</strong> — כל הזכויות שמורות</p>
+    <p style="margin-top:8px;font-size:0.8rem;">בריאות אמיתית מתחילה בטבע 🌿</p>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" title="שלחו הודעה בוואטסאפ">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert('תודה! נחזור אליך בהקדם 🌿');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
