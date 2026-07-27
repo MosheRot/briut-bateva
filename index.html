@@ -26,6 +26,62 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "מה זה נטורופתיה ואיך היא עוזרת?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "נטורופתיה היא גישה טיפולית המשלבת תזונה נכונה, צמחי מרפא ואורח חיים מאוזן כדי לתמוך ביכולת הריפוי הטבעית של הגוף. בקליניקת בריאות בטבע בירושלים אנו בונים תוכנית מותאמת אישית לכל מטופל."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "מהם היתרונות של עיסוי טיפולי?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "עיסויים משלבים טכניקות מהמזרח ומהמערב לשחרור מתחים בשרירים, הפחתת מתח נפשי ושיפור זרימת הדם. הטיפול מותאם אישית לצרכים ולרמת הרגישות של כל מטופל/ת."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "איזה טיפולי פנים מתאימים לעור רגיש?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "טיפולי הפנים שלנו משתמשים בחומרים אורגניים טהורים, ולכן מתאימים גם לעור רגיש. בפגישת הייעוץ הראשונית נבחר יחד את הטיפול המתאים ביותר לסוג העור שלך."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "מה ההבדל בין הילינג לטיפול רגשי?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "הילינג מתמקד בהעברת אנרגיה מרפאת לאיזון גוף-נפש-רוח, בעוד שטיפול רגשי מתמקד בעיבוד מודע של דפוסים ורגשות בליווי אישי. לעיתים משלבים בין השניים בהתאם לצורך."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "האם רפואה אלטרנטיבית יכולה להשלים טיפול רפואי קונבנציונלי?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "כן — נטורופתיה, הילינג וטיפולים דומים משמשים לרוב כליווי משלים לצד טיפול רפואי קונבנציונלי, ולא כתחליף לו. מומלץ תמיד להתייעץ עם רופא/ה לפני התחלת טיפול חדש."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "איך קובעים תור לטיפול בקליניקה בירושלים?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "אפשר לקבוע תור דרך טופס יצירת הקשר באתר, או לשלוח הודעה מהירה בוואטסאפ. הקליניקה ממוקמת ברחוב העמלים 31, ירושלים."
+        }
+      }
+    ]
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="bg.png" />
   <!-- Google tag (gtag.js) -->
@@ -369,6 +425,43 @@
     .testimonial-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.8; margin-bottom: 18px; font-weight: 300; font-style: italic; }
     .testimonial-card strong { color: var(--gold); font-size: 0.88rem; font-weight: 600; }
 
+    /* ── FAQ ── */
+    #faq { background: var(--white); }
+    .faq-list {
+      max-width: 760px;
+      margin: 50px auto 0;
+    }
+    .faq-item {
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 16px;
+      padding: 6px 26px;
+      margin-bottom: 16px;
+      background: var(--cream);
+    }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 0;
+      font-weight: 600;
+      color: var(--green-dark);
+      font-size: 1.02rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::before {
+      content: '+';
+      color: var(--gold);
+      font-weight: 700;
+      margin-left: 12px;
+    }
+    .faq-item[open] summary::before { content: '−'; }
+    .faq-item p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      padding-bottom: 18px;
+      font-weight: 300;
+    }
+
     /* ── CONTACT ── */
     #contact { background: var(--cream); }
     .contact-wrapper {
@@ -485,6 +578,7 @@
     <ul>
       <li><a href="#treatments">טיפולים</a></li>
       <li><a href="#testimonials">המלצות</a></li>
+      <li><a href="#faq">שאלות נפוצות</a></li>
       <li><a href="#contact" class="nav-cta">קביעת תור</a></li>
     </ul>
   </nav>
@@ -569,6 +663,41 @@
         <p>"אחרי העיסוי הראשון הבנתי שמצאתי את המקום שלי. מקצוענות, חום ואווירה מדהימה בכל ביקור."</p>
         <strong>— נועה ר., 29</strong>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="text-center">
+      <div class="section-label">שאלות נפוצות</div>
+      <h2 class="section-title">יש לכם שאלות?</h2>
+      <p class="section-sub">כל מה שרציתם לדעת על הטיפולים שלנו בירושלים</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>מה זה נטורופתיה ואיך היא עוזרת?</summary>
+        <p>נטורופתיה היא גישה טיפולית המשלבת תזונה נכונה, צמחי מרפא ואורח חיים מאוזן כדי לתמוך ביכולת הריפוי הטבעית של הגוף. בקליניקת בריאות בטבע בירושלים אנו בונים תוכנית מותאמת אישית לכל מטופל.</p>
+      </details>
+      <details class="faq-item">
+        <summary>מהם היתרונות של עיסוי טיפולי?</summary>
+        <p>עיסויים משלבים טכניקות מהמזרח ומהמערב לשחרור מתחים בשרירים, הפחתת מתח נפשי ושיפור זרימת הדם. הטיפול מותאם אישית לצרכים ולרמת הרגישות של כל מטופל/ת.</p>
+      </details>
+      <details class="faq-item">
+        <summary>איזה טיפולי פנים מתאימים לעור רגיש?</summary>
+        <p>טיפולי הפנים שלנו משתמשים בחומרים אורגניים טהורים, ולכן מתאימים גם לעור רגיש. בפגישת הייעוץ הראשונית נבחר יחד את הטיפול המתאים ביותר לסוג העור שלך.</p>
+      </details>
+      <details class="faq-item">
+        <summary>מה ההבדל בין הילינג לטיפול רגשי?</summary>
+        <p>הילינג מתמקד בהעברת אנרגיה מרפאת לאיזון גוף-נפש-רוח, בעוד שטיפול רגשי מתמקד בעיבוד מודע של דפוסים ורגשות בליווי אישי. לעיתים משלבים בין השניים בהתאם לצורך.</p>
+      </details>
+      <details class="faq-item">
+        <summary>האם רפואה אלטרנטיבית יכולה להשלים טיפול רפואי קונבנציונלי?</summary>
+        <p>כן — נטורופתיה, הילינג וטיפולים דומים משמשים לרוב כליווי משלים לצד טיפול רפואי קונבנציונלי, ולא כתחליף לו. מומלץ תמיד להתייעץ עם רופא/ה לפני התחלת טיפול חדש.</p>
+      </details>
+      <details class="faq-item">
+        <summary>איך קובעים תור לטיפול בקליניקה בירושלים?</summary>
+        <p>אפשר לקבוע תור דרך טופס יצירת הקשר באתר, או לשלוח הודעה מהירה בוואטסאפ. הקליניקה ממוקמת ברחוב העמלים 31, ירושלים.</p>
+      </details>
     </div>
   </section>
 
