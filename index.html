@@ -712,15 +712,15 @@
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label>שם מלא</label>
-          <input type="text" placeholder="הכנס/י שם מלא" required />
+          <input type="text" name="fullname" placeholder="הכנס/י שם מלא" required />
         </div>
         <div class="form-group">
           <label>טלפון</label>
-          <input type="tel" placeholder="050-0000000" required />
+          <input type="tel" name="phone" placeholder="050-0000000" required />
         </div>
         <div class="form-group">
           <label>סוג טיפול</label>
-          <select required>
+          <select name="treatment" required>
             <option value="">בחר/י טיפול</option>
             <option>נטורופתיה</option>
             <option>הילינג</option>
@@ -732,7 +732,7 @@
         </div>
         <div class="form-group">
           <label>הערות (אופציונלי)</label>
-          <textarea placeholder="ספר/י לנו קצת על עצמך ועל מה שחשוב לך..."></textarea>
+          <textarea name="notes" placeholder="ספר/י לנו קצת על עצמך ועל מה שחשוב לך..."></textarea>
         </div>
         <button type="submit" class="btn-submit">שליחת פנייה ✉️</button>
       </form>
@@ -757,8 +757,36 @@
   <script>
     function handleSubmit(e) {
       e.preventDefault();
+      var form = e.target;
+      var data = new FormData(form);
+      var fullname = data.get('fullname');
+      var phone = data.get('phone');
+      var treatment = data.get('treatment');
+      var notes = data.get('notes');
+
+      var waText = 'היי, אשמח לקבוע תור 🌿\n' +
+        'שם: ' + fullname + '\n' +
+        'טלפון: ' + phone + '\n' +
+        'סוג טיפול: ' + treatment +
+        (notes ? '\nהערות: ' + notes : '');
+      window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'a9da06c5-93ed-4f7f-be08-0c29420b2083',
+          subject: 'פנייה חדשה מהאתר - בריאות בטבע',
+          from_name: fullname,
+          name: fullname,
+          phone: phone,
+          treatment: treatment,
+          notes: notes || '-'
+        })
+      }).catch(function () {});
+
       alert('תודה! נחזור אליך בהקדם 🌿');
-      e.target.reset();
+      form.reset();
     }
   </script>
 </body>
