@@ -25,6 +25,14 @@
     "url": "https://briutbatteva.com/",
     "priceRange": "₪₪",
     "areaServed": "ירושלים",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "18:00",
+        "closes": "22:00"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "העמלים 31",
@@ -398,6 +406,22 @@
     }
     .treatment-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
 
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+    .about-wrapper {
+      max-width: 720px;
+      margin: 40px auto 0;
+      text-align: center;
+    }
+    .about-wrapper p {
+      color: var(--text);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+    .about-wrapper strong { color: var(--green-dark); font-weight: 600; }
+
     /* ── TESTIMONIALS ── */
     #testimonials {
       background: var(--green-dark);
@@ -582,11 +606,12 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <img src="heart-leaves.jpg" alt="לוגו">
+      <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" width="44" height="44">
       <div class="nav-logo-text">בריאות <span>בטבע</span></div>
     </div>
     <ul>
       <li><a href="#treatments">טיפולים</a></li>
+      <li><a href="#about">אודות</a></li>
       <li><a href="#testimonials">המלצות</a></li>
       <li><a href="#faq">שאלות נפוצות</a></li>
       <li><a href="#contact" class="nav-cta">קביעת תור</a></li>
@@ -597,7 +622,7 @@
   <section class="hero">
     <img src="bg.png" alt="" class="hero-bg">
     <div class="hero-inner">
-      <img src="heart-leaves.jpg" alt="לוגו בריאות בטבע" class="hero-logo">
+      <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="hero-logo" width="120" height="120">
       <div class="hero-tag">טיפולים הוליסטיים בירושלים &amp; ריפוי טבעי</div>
       <h1>ריפוי טבעי<br><em>לנפש ולגוף</em></h1>
       <div class="hero-line"></div>
@@ -647,6 +672,18 @@
         <h3>טיפולים רגשיים</h3>
         <p>עיבוד רגשי וליווי נפשי לשחרור דפוסים ישנים ובניית כוחות פנימיים חדשים.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="text-center">
+      <div class="section-label">מי אנחנו</div>
+      <h2 class="section-title">קליניקה הוליסטית בלב ירושלים</h2>
+    </div>
+    <div class="about-wrapper">
+      <p><strong>בריאות בטבע</strong> היא קליניקה לטיפולים הוליסטיים ברחוב העמלים 31, ירושלים. אנחנו מאמינים שריפוי אמיתי מתחיל מהקשבה — לגוף, לנפש ולקצב האישי של כל מטופל/ת. כל טיפול ניתן במקצועיות ובמסירות, מתוך התמקדות אמיתית בבעיה האישית של כל אחד ואחת — לא סביב תבנית קבועה.</p>
+      <p>בין אם הגעת בעקבות המלצה, בעקבות חיפוש נטורופת בירושלים, או פשוט הרגשת שהגיע הזמן לנסות גישה אחרת — נשמח ללוות אותך. הקליניקה משלבת שיטות טיפול טבעיות ומוכרות: נטורופתיה, הילינג, אבני ריפוי, עיסויים, טיפולי פנים וטיפולים רגשיים, בסביבה שקטה ומזמינה ובסטנדרט מקצועי גבוה.</p>
     </div>
   </section>
 
@@ -751,14 +788,15 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="heart-leaves.jpg" alt="לוגו" class="footer-logo">
+    <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="footer-logo" width="50" height="50" loading="lazy">
     <p>© 2026 <strong>בריאות בטבע</strong> — כל הזכויות שמורות</p>
     <p style="margin-top:8px;font-size:0.85rem;">📍 העמלים 31, ירושלים</p>
+    <p style="margin-top:8px;font-size:0.85rem;">🕕 שעות פתיחה: א'–ה', 18:00–22:00</p>
     <p style="margin-top:8px;font-size:0.8rem;">בריאות אמיתית מתחילה בטבע 🌿</p>
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" title="שלחו הודעה בוואטסאפ">
+  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" rel="noopener noreferrer" title="שלחו הודעה בוואטסאפ">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -779,7 +817,7 @@
         'טלפון: ' + phone + '\n' +
         'סוג טיפול: ' + treatment +
         (notes ? '\nהערות: ' + notes : '');
-      window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank');
+      window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank', 'noopener');
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
