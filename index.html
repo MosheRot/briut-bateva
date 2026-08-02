@@ -875,6 +875,10 @@
         })
       }).catch(function () {});
 
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', { 'send_to': 'AW-17934231921/3fkLCM-E17wcEPHS2udC' });
+      }
+
       alert('תודה! נחזור אליך בהקדם 🌿');
       form.reset();
     }
