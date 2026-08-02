@@ -440,6 +440,68 @@
     }
     .treatment-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
 
+    /* ── ARTICLES ── */
+    #articles { background: var(--cream); }
+    .articles-list {
+      max-width: 780px;
+      margin: 50px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+    .article-card {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 20px;
+      padding: 34px 36px;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(26,61,43,0.08); border-color: rgba(201,168,76,0.4); }
+    .article-card h3 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+    }
+    .article-card p {
+      color: var(--gray);
+      font-size: 0.96rem;
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .article-points {
+      list-style: none;
+      margin: 0 0 18px;
+      padding: 0;
+    }
+    .article-points li {
+      color: var(--text);
+      font-size: 0.92rem;
+      line-height: 1.9;
+      padding-right: 24px;
+      position: relative;
+      font-weight: 300;
+    }
+    .article-points li::before {
+      content: '✓';
+      position: absolute;
+      right: 0;
+      color: var(--green-accent);
+      font-weight: 700;
+    }
+    .article-link {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+    .article-link:hover { border-color: var(--gold); }
+
     /* ── ABOUT ── */
     #about { background: var(--cream); }
     .about-wrapper {
@@ -646,6 +708,7 @@
     <ul>
       <li><a href="#treatments">טיפולים</a></li>
       <li><a href="#about">אודות</a></li>
+      <li><a href="#articles">מאמרים</a></li>
       <li><a href="#testimonials">המלצות</a></li>
       <li><a href="#faq">שאלות נפוצות</a></li>
       <li><a href="#contact" class="nav-cta">קביעת תור</a></li>
@@ -718,6 +781,48 @@
     <div class="about-wrapper">
       <p><strong>בריאות בטבע</strong> היא קליניקה לטיפולים הוליסטיים ברחוב העמלים 31, ירושלים. אנחנו מאמינים שריפוי אמיתי מתחיל מהקשבה — לגוף, לנפש ולקצב האישי של כל מטופל/ת. כל טיפול ניתן במקצועיות ובמסירות, מתוך התמקדות אמיתית בבעיה האישית של כל אחד ואחת — לא סביב תבנית קבועה.</p>
       <p>בין אם הגעת בעקבות המלצה, בעקבות חיפוש נטורופת בירושלים, או פשוט הרגשת שהגיע הזמן לנסות גישה אחרת — נשמח ללוות אותך. הקליניקה משלבת שיטות טיפול טבעיות ומוכרות: נטורופתיה, הילינג, אבני ריפוי, עיסויים, טיפולי פנים וטיפולים רגשיים, בסביבה שקטה ומזמינה ובסטנדרט מקצועי גבוה.</p>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section id="articles">
+    <div class="text-center">
+      <div class="section-label">מהבלוג שלנו</div>
+      <h2 class="section-title">טיפים ומידע לבריאות טובה יותר</h2>
+      <p class="section-sub">כמה תובנות מהניסיון שלנו בקליניקה בירושלים</p>
+    </div>
+    <div class="articles-list">
+      <article class="article-card">
+        <h3>עיסוי טיפולי — יותר מפינוק, זה צורך</h3>
+        <p>כמה זמן עבר מאז שבאמת הקשבתם לגוף שלכם? לא צריך לחכות שהגב "ייתקע" כדי להתחיל לטפל בעצמכם. אימונים, ישיבה ממושכת מול מחשב, לחץ יומיומי ונהיגה — הגוף סופג הכל, גם כשאנחנו לא שמים לב. עיסוי מקצועי הוא לא מותרות, אלא דרך לעזור לגוף להשתחרר ממתח, להפחית עומס בשרירים ולהחזיר תחושת קלילות ואנרגיה.</p>
+        <p>מתאים במיוחד למי ש:</p>
+        <ul class="article-points">
+          <li>סובל מכאבי צוואר או גב</li>
+          <li>מתאמן ורוצה התאוששות טובה יותר</li>
+          <li>מרגיש עייפות או סטרס מהשגרה</li>
+          <li>פשוט רוצה שעה אחת של שקט לעצמו</li>
+        </ul>
+        <a href="#contact" class="article-link">קביעת תור לעיסוי טיפולי ←</a>
+      </article>
+      <article class="article-card">
+        <h3>טיפול פנים לגברים — מדריך קצר</h3>
+        <p>הפנים הן הדבר הראשון שאנשים רואים — אז למה משקיעים בבגדים ובשעון, ולא בעור? אם אתם מזהים עור שומני, שחורים באף ובפנים, פצעונים או מראה עייף וחסר חיים — זה הזמן לשדרג.</p>
+        <p>טיפול פנים מקצועי לגברים כולל:</p>
+        <ul class="article-points">
+          <li>ניקוי עמוק של העור</li>
+          <li>הוצאת שחורים בצורה יסודית</li>
+          <li>פתיחת נקבוביות וניקוי בלוטות חלב</li>
+          <li>סרום מרגיע ומזין</li>
+          <li>מסכה מקצועית להרגעת העור</li>
+        </ul>
+        <p>כבר אחרי הטיפול הראשון מורגש הבדל: עור חלק יותר, נקי יותר, ומראה שמקרין ביטחון.</p>
+        <a href="#contact" class="article-link">קביעת תור לטיפול פנים ←</a>
+      </article>
+      <article class="article-card">
+        <h3>כאבי גב וצוואר בגיל 20-30? זה לא "רק מהעבודה"</h3>
+        <p>אתם בגילאי 18-30 והגוף כבר "מתלונן"? זה לא מקרי. כאבי גב מריבוי ישיבה, צוואר תפוס משעות מול הטלפון והמחשב, עייפות שלא עוברת גם אחרי שינה טובה — כל אלה סימנים שהגוף שולח לפני שהבעיה מחמירה. טיפול מוקדם — עיסוי, רפלקסולוגיה או ליווי לאורח חיים בריא יותר — יכול למנוע שהבעיות הקטנות האלה יהפכו לכרוניות.</p>
+        <a href="#contact" class="article-link">לבדיקה ולתיאום טיפול ←</a>
+      </article>
     </div>
   </section>
 
