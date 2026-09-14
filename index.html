@@ -985,6 +985,10 @@
         gtag('event', 'generate_lead', { 'currency': 'ILS' });
       }
 
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+
       alert('תודה! נחזור אליך בהקדם 🌿');
       form.reset();
     }
