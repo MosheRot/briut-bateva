@@ -992,6 +992,22 @@
       alert('תודה! נחזור אליך בהקדם 🌿');
       form.reset();
     }
+
+    // Track direct WhatsApp / phone link clicks as leads in GA4
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href]');
+      if (!link || typeof gtag !== 'function') return;
+      var href = link.getAttribute('href');
+      var eventName = null;
+      if (href.indexOf('wa.me/') !== -1) eventName = 'whatsapp_click';
+      else if (href.indexOf('tel:') === 0) eventName = 'phone_click';
+      if (!eventName) return;
+      gtag('event', eventName, {
+        'send_to': 'G-2645Y9Y97M',
+        'link_location': link.className || 'inline',
+        'transport_type': 'beacon'
+      });
+    });
   </script>
 </body>
 </html>
