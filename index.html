@@ -370,6 +370,18 @@
     }
     .text-center { text-align: center; }
 
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+      transition-delay: var(--reveal-delay, 0s);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
     /* ── TREATMENTS ── */
     #treatments { background: var(--white); }
     .treatments-grid {
@@ -401,10 +413,19 @@
     .treatment-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(26,61,43,0.1); border-color: rgba(201,168,76,0.4); }
     .treatment-card:hover::before { opacity: 1; }
     .treatment-icon {
-      font-size: 2.8rem;
-      margin-bottom: 16px;
-      display: block;
+      width: 60px; height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(155deg, rgba(201,168,76,0.16), rgba(201,168,76,0.04));
+      border: 1.5px solid rgba(201,168,76,0.4);
+      color: var(--green-dark);
+      transition: border-color .3s, background .3s;
     }
+    .treatment-card:hover .treatment-icon { border-color: var(--gold); background: linear-gradient(155deg, rgba(201,168,76,0.26), rgba(201,168,76,0.08)); }
+    .treatment-icon svg { width: 28px; height: 28px; }
     .treatment-card h3 {
       font-family: 'Frank Ruhl Libre', serif;
       font-size: 1.25rem;
@@ -644,39 +665,39 @@
 
   <!-- TREATMENTS -->
   <section id="treatments">
-    <div class="text-center">
+    <div class="text-center reveal">
       <div class="section-label">הטיפולים שלנו</div>
       <h2 class="section-title">מה אנחנו מציעים?</h2>
       <p class="section-sub">מגוון טיפולים טבעיים מושלמים, מותאמים אישית לכל גיל וצורך</p>
     </div>
     <div class="treatments-grid">
-      <div class="treatment-card">
-        <span class="treatment-icon">🌱</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.05s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c0-9 4-15 14-16-1 10-7 14-16 14"/><path d="M5 21c2-3 4-5 7-7"/></svg></span>
         <h3>נטורופתיה</h3>
         <p>אבחון וטיפול טבעי בגוף דרך תזונה, צמחי מרפא ואורח חיים בריא ומאוזן.</p>
       </div>
-      <div class="treatment-card">
-        <span class="treatment-icon">✨</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.1s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg></span>
         <h3>הילינג</h3>
         <p>העברת אנרגיה מרפאת לאיזון עמוק של גוף, נפש ורוח בצורה עדינה ורבת עוצמה.</p>
       </div>
-      <div class="treatment-card">
-        <span class="treatment-icon">💎</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.15s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6-6 6 6-6 12z"/><path d="M6 9h12M9.5 9L12 3M14.5 9L12 3M9.5 9L12 21M14.5 9L12 21"/></svg></span>
         <h3>אבני ריפוי</h3>
         <p>שימוש בגביש ואבנים טבעיות לאיזון אנרגטי, שחרור חסימות ופתיחת מרכזי אנרגיה.</p>
       </div>
-      <div class="treatment-card">
-        <span class="treatment-icon">🤲</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.05s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c0-1 .5-2 2-2 1 0 2 .8 2 2v2"/><path d="M8 12V7c0-1 .8-2 2-2s2 1 2 2v5"/><path d="M12 12V6c0-1 .8-2 2-2s2 1 2 2v6"/><path d="M16 12V8c0-1 .8-2 2-2s2 1 2 2v6c0 3.3-2.7 6-6 6h-2c-2 0-3.5-1-4.5-2.5L5 17"/></svg></span>
         <h3>עיסויים</h3>
         <p>עיסוי מרגיע ומשחרר בשיטות שוודי, שיאצו, תאילנדי ורקמות עמוקות, ומסייע בהפחתת מתח, לחץ וחרדה — לגוף רענן ומרוגע.</p>
       </div>
-      <div class="treatment-card">
-        <span class="treatment-icon">🌸</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.1s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c-1.5-1.5-1.5-4 0-5.5C13.5 6 13.5 8.5 12 10z"/><path d="M12 14c1.5 1.5 1.5 4 0 5.5C10.5 18 10.5 15.5 12 14z"/><path d="M10 12c-1.5 1.5-4 1.5-5.5 0C6 10.5 8.5 10.5 10 12z"/><path d="M14 12c1.5-1.5 4-1.5 5.5 0C18 13.5 15.5 13.5 14 12z"/></svg></span>
         <h3>טיפולי פנים</h3>
         <p>טיפולי פנים טבעיים עם חומרים אורגניים טהורים לעור זוהר, בריא ומחודש.</p>
       </div>
-      <div class="treatment-card">
-        <span class="treatment-icon">💚</span>
+      <div class="treatment-card reveal" style="--reveal-delay:.15s">
+        <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.3-8.8C1.3 8.3 2.8 5 6 5c2 0 3.3 1.1 4 2.3C10.7 6.1 12 5 14 5c3.2 0 4.7 3.3 3.3 6.2C15 15.6 12 20 12 20z"/><path d="M9 11.5l1.3 1.3L13.5 9.5"/></svg></span>
         <h3>טיפולים רגשיים</h3>
         <p>עיבוד רגשי וליווי נפשי לשחרור דפוסים ישנים, תמיכה בהתמודדות עם לחץ וחרדה, ובניית כוחות פנימיים חדשים.</p>
       </div>
@@ -685,11 +706,11 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="text-center">
+    <div class="text-center reveal">
       <div class="section-label">מי אנחנו</div>
       <h2 class="section-title">קליניקה הוליסטית בלב ירושלים</h2>
     </div>
-    <div class="about-wrapper">
+    <div class="about-wrapper reveal" style="--reveal-delay:.1s">
       <p><strong>בריאות בטבע</strong> היא קליניקה לטיפולים הוליסטיים ברחוב העמלים 31, ירושלים. אנחנו מאמינים שריפוי אמיתי מתחיל מהקשבה — לגוף, לנפש ולקצב האישי של כל מטופל/ת. כל טיפול ניתן במקצועיות ובמסירות, מתוך התמקדות אמיתית בבעיה האישית של כל אחד ואחת — לא סביב תבנית קבועה.</p>
       <p>בין אם הגעת בעקבות המלצה, בעקבות חיפוש נטורופת בירושלים, או פשוט הרגשת שהגיע הזמן לנסות גישה אחרת — נשמח ללוות אותך. הקליניקה משלבת שיטות טיפול טבעיות ומוכרות: נטורופתיה, הילינג, אבני ריפוי, עיסויים, טיפולי פנים וטיפולים רגשיים, בסביבה שקטה ומזמינה ובסטנדרט מקצועי גבוה.</p>
     </div>
@@ -697,23 +718,23 @@
 
   <!-- TESTIMONIALS -->
   <section id="testimonials">
-    <div class="text-center" style="position:relative;z-index:1">
+    <div class="text-center reveal" style="position:relative;z-index:1">
       <div class="section-label">לקוחות מרוצים</div>
       <h2 class="section-title">מה אומרים עלינו?</h2>
       <p class="section-sub">חוויות אמיתיות של אנשים שעברו שינוי אמיתי</p>
     </div>
     <div class="testimonials-grid">
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal" style="--reveal-delay:.05s">
         <div class="stars">★★★★★</div>
         <p>"חוויה מדהימה! טיפול ההילינג שינה אותי מבפנים. הגעתי עם תחושת כבדות ויצאתי קלה ומלאת אנרגיה."</p>
         <strong>— מיכל כ., 26</strong>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal" style="--reveal-delay:.1s">
         <div class="stars">★★★★★</div>
         <p>"הנטורופתיה כאן היא ברמה אחרת לגמרי. קיבלתי תוכנית מותאמת אישית ותוצאות מדהימות תוך שבועיים!"</p>
         <strong>— יוסי ל., 22</strong>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card reveal" style="--reveal-delay:.15s">
         <div class="stars">★★★★★</div>
         <p>"אחרי העיסוי הראשון הבנתי שמצאתי את המקום שלי. מקצוענות, חום ואווירה מדהימה בכל ביקור."</p>
         <strong>— נועה ר., 29</strong>
@@ -723,12 +744,12 @@
 
   <!-- FAQ -->
   <section id="faq">
-    <div class="text-center">
+    <div class="text-center reveal">
       <div class="section-label">שאלות נפוצות</div>
       <h2 class="section-title">יש לכם שאלות?</h2>
       <p class="section-sub">כל מה שרציתם לדעת על הטיפולים שלנו בירושלים</p>
     </div>
-    <div class="faq-list">
+    <div class="faq-list reveal" style="--reveal-delay:.1s">
       <details class="faq-item">
         <summary>מה זה נטורופתיה ואיך היא עוזרת?</summary>
         <p>נטורופתיה היא גישה טיפולית המשלבת תזונה נכונה, צמחי מרפא ואורח חיים מאוזן כדי לתמוך ביכולת הריפוי הטבעית של הגוף. בקליניקת בריאות בטבע בירושלים אנו בונים תוכנית מותאמת אישית לכל מטופל.</p>
@@ -762,12 +783,12 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="text-center">
+    <div class="text-center reveal">
       <div class="section-label">צרו קשר</div>
       <h2 class="section-title">מוכנים להתחיל?</h2>
       <p class="section-sub">מלאו את הטופס ונחזור אליכם בהקדם לתיאום תור אישי</p>
     </div>
-    <div class="contact-wrapper">
+    <div class="contact-wrapper reveal" style="--reveal-delay:.1s">
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label>שם מלא</label>
@@ -808,7 +829,7 @@
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" rel="noopener noreferrer" title="שלחו הודעה בוואטסאפ">
+  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" rel="noopener noreferrer" title="שלחו הודעה בוואטסאפ" onclick="if (typeof gtag === 'function') { gtag('event', 'whatsapp_click', { event_category: 'engagement' }); }">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -831,6 +852,10 @@
         (notes ? '\nהערות: ' + notes : '');
       window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank', 'noopener');
 
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { method: 'form', treatment: treatment });
+      }
+
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -848,6 +873,23 @@
       alert('תודה! נחזור אליך בהקדם 🌿');
       form.reset();
     }
+
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
   </script>
 </body>
 </html>
