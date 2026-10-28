@@ -408,6 +408,66 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
 
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--white);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 22px 20px;
+    }
+    .trust-bar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 28px 44px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green-dark);
+      font-size: 0.92rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .trust-item svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; }
+    @media (max-width: 640px) {
+      .trust-item { white-space: normal; }
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--white); }
+    .process-list {
+      max-width: 760px;
+      margin: 50px auto 0;
+    }
+    .process-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(201,168,76,0.25);
+    }
+    .process-item:last-child { border-bottom: 1px solid rgba(201,168,76,0.25); }
+    .process-num {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .process-item h4 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .process-item p { color: var(--gray); font-size: 0.95rem; line-height: 1.75; font-weight: 300; }
+    @media (max-width: 500px) {
+      .process-item { grid-template-columns: 1fr; gap: 6px; }
+    }
+
     /* ── TREATMENTS ── */
     #treatments { background: var(--white); }
     .treatments-grid {
@@ -768,6 +828,28 @@
     </div>
   </section>
 
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+        <span>טיפול אחד על אחד, בלי למהר</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span>קליניקה פרטית בלב ירושלים</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>תוכנית טיפול מותאמת אישית</span>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-4-1L3 20l1.1-4.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"/></svg>
+        <span>זמינות בוואטסאפ לכל שאלה</span>
+      </div>
+    </div>
+  </div>
+
   <!-- TREATMENTS -->
   <section id="treatments">
     <div class="text-center reveal">
@@ -805,6 +887,38 @@
         <span class="treatment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.3-8.8C1.3 8.3 2.8 5 6 5c2 0 3.3 1.1 4 2.3C10.7 6.1 12 5 14 5c3.2 0 4.7 3.3 3.3 6.2C15 15.6 12 20 12 20z"/><path d="M9 11.5l1.3 1.3L13.5 9.5"/></svg></span>
         <h3>טיפולים רגשיים</h3>
         <p>עיבוד רגשי וליווי נפשי לשחרור דפוסים ישנים, תמיכה בהתמודדות עם לחץ וחרדה, ובניית כוחות פנימיים חדשים.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="text-center reveal">
+      <div class="section-label">איך זה עובד</div>
+      <h2 class="section-title">מה קורה מרגע שפניתם?</h2>
+      <p class="section-sub">תהליך פשוט וברור, בלי התחייבות ובלי הפתעות</p>
+    </div>
+    <div class="process-list reveal" style="--reveal-delay:.1s">
+      <div class="process-item">
+        <div class="process-num">01</div>
+        <div>
+          <h4>יוצרים קשר</h4>
+          <p>שולחים הודעה בוואטסאפ או ממלאים את הטופס באתר, ומתאמים יחד מועד שנוח לכם.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">02</div>
+        <div>
+          <h4>פגישת היכרות וטיפול ראשון</h4>
+          <p>מתחילים בשיחה קצרה על מה שמטריד אתכם, ורק אחר כך בוחרים יחד את הטיפול המתאים — לא תבנית קבועה מראש.</p>
+        </div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">03</div>
+        <div>
+          <h4>ממשיכים בקצב שלכם</h4>
+          <p>בהתאם לצורך, קובעים המשך טיפולים — בלי התחייבות לחבילה, ובלי לחץ להמשיך אם זה לא מתאים.</p>
+        </div>
       </div>
     </div>
   </section>
