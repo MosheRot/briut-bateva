@@ -10,18 +10,30 @@
   <meta property="og:description" content="טיפולים אלטרנטיביים ורפואה משלימה בירושלים: טיפולי פנים, עיסויים, נטורופתיה, הילינג וטיפולים רגשיים." />
   <meta property="og:type" content="business.business" />
   <meta property="og:url" content="https://briutbatteva.com/" />
-  <meta property="og:image" content="https://briutbatteva.com/heart-leaves.jpg" />
+  <meta property="og:image" content="https://briutbatteva.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="בריאות בטבע - טיפולים הוליסטיים בירושלים" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="בריאות בטבע" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="בריאות בטבע — טיפולים הוליסטיים בירושלים" />
   <meta name="twitter:description" content="טיפולי פנים, עיסויים, נטורופתיה, הילינג וטיפולים רגשיים בלב ירושלים." />
-  <meta name="twitter:image" content="https://briutbatteva.com/heart-leaves.jpg" />
+  <meta name="twitter:image" content="https://briutbatteva.com/og-image.jpg" />
+  <meta name="theme-color" content="#1a3d2b" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     "name": "בריאות בטבע",
-    "image": "https://briutbatteva.com/heart-leaves.jpg",
+    "image": "https://briutbatteva.com/og-image.jpg",
+    "logo": "https://briutbatteva.com/heart-leaves.jpg",
+    "description": "קליניקה לטיפולים הוליסטיים בירושלים: נטורופתיה, עיסויים וטיפולי פנים לגברים, הילינג, אבני ריפוי וטיפול רגשי.",
     "telephone": "+972534103577",
+    "email": "merpaa777@gmail.com",
     "url": "https://briutbatteva.com/",
     "priceRange": "₪₪",
     "areaServed": "ירושלים",
@@ -40,7 +52,8 @@
       "addressCountry": "IL"
     },
     "sameAs": [
-      "https://www.facebook.com/292135153991754"
+      "https://www.facebook.com/292135153991754",
+      "https://www.instagram.com/merpaa7777/"
     ]
   }
   </script>
@@ -62,7 +75,7 @@
         "name": "מה זה נטורופתיה ואיך היא עוזרת?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "נטורופתיה היא גישה טיפולית המשלבת תזונה נכונה, צמחי מרפא ואורח חיים מאוזן כדי לתמוך ביכולת הריפוי הטבעית של הגוף. בקליניקת בריאות בטבע בירושלים אנו בונים תוכנית מותאמת אישית לכל מטופל."
+          "text": "נטורופתיה היא גישה טיפולית המשלבת תזונה נכונה, צמחי מרפא ואורח חיים מאוזן כדי לתמוך ביכולת הריפוי הטבעית של הגוף. בקליניקת בריאות בטבע בירושלים אני בונה תוכנית מותאמת אישית לכל מטופל."
         }
       },
       {
@@ -70,7 +83,7 @@
         "name": "מהם היתרונות של עיסוי טיפולי?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "עיסויים משלבים טכניקות מהמזרח ומהמערב לשחרור מתחים בשרירים, הפחתת מתח נפשי ושיפור זרימת הדם. הטיפול מותאם אישית לצרכים ולרמת הרגישות של כל מטופל/ת."
+          "text": "עיסויים משלבים טכניקות מהמזרח ומהמערב לשחרור מתחים בשרירים, הפחתת מתח נפשי ושיפור זרימת הדם. הטיפול מותאם אישית לצרכים ולרמת הרגישות של כל מטופל. העיסויים בקליניקה ניתנים לגברים בלבד."
         }
       },
       {
@@ -116,8 +129,10 @@
     ]
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="bg.png" />
+  <link rel="preload" as="image" href="bg.jpg" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2645Y9Y97M"></script>
   <script>
@@ -609,7 +624,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url('bg.png') center / cover no-repeat;
+      background: url('bg.jpg') center / cover no-repeat;
       opacity: 0.08;
     }
     #testimonials .section-title { color: var(--white); }
@@ -786,23 +801,175 @@
       object-fit: cover;
     }
 
-    @media (max-width: 640px) {
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 22px;
+      margin: 18px 0 6px;
+    }
+    .footer-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-disclaimer { max-width: 620px; margin: 14px auto 0; font-size: 0.76rem; line-height: 1.7; color: rgba(255,255,255,0.4); }
+    footer a.footer-phone { color: rgba(255,255,255,0.75); text-decoration: none; }
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link {
+      position: absolute;
+      top: -60px; right: 16px;
+      background: var(--gold);
+      color: var(--green-dark);
+      padding: 10px 18px;
+      border-radius: 0 0 10px 10px;
+      font-weight: 700;
+      z-index: 2000;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ── MOBILE MENU ── */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(201,168,76,0.5);
+      border-radius: 10px;
+      width: 44px; height: 44px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+    .menu-toggle svg { width: 24px; height: 24px; }
+
+    /* ── CONTACT DETAILS ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 28px;
+      max-width: 980px;
+      margin: 60px auto 0;
+      align-items: start;
+    }
+    .contact-layout .contact-wrapper { margin: 0; max-width: none; }
+    .contact-details { display: grid; gap: 14px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 18px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color .2s, transform .2s;
+    }
+    a.contact-item:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .contact-item svg { width: 26px; height: 26px; flex-shrink: 0; color: var(--green-mid); }
+    .contact-item small { display: block; color: var(--gray); font-size: 0.8rem; }
+    .contact-item strong { font-size: 1rem; color: var(--green-dark); }
+    .nav-apps { display: flex; gap: 10px; margin-top: 4px; }
+    .nav-apps a {
+      flex: 1;
+      text-align: center;
+      padding: 11px;
+      border-radius: 12px;
+      background: var(--green-dark);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .nav-apps a:hover { background: var(--green-mid); }
+    .form-note { font-size: 0.78rem; color: var(--gray); margin-top: 14px; text-align: center; line-height: 1.6; }
+    .form-note a { color: var(--green-mid); }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .form-success h3 { font-family: 'Frank Ruhl Libre', serif; color: var(--green-dark); font-size: 1.5rem; margin-bottom: 10px; }
+    .form-success p { color: var(--gray); }
+    .contact-wrapper.sent form { display: none; }
+    .contact-wrapper.sent .form-success { display: block; }
+
+    /* ── COOKIE NOTICE ── */
+    .cookie-bar {
+      position: fixed;
+      bottom: 16px; right: 16px;
+      max-width: 420px;
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.88);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      z-index: 1500;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: none;
+    }
+    .cookie-bar.show { display: block; }
+    .cookie-bar a { color: var(--gold-light); }
+    .cookie-bar button {
+      margin-top: 10px;
+      background: var(--gold);
+      color: var(--green-dark);
+      border: none;
+      border-radius: 20px;
+      padding: 7px 20px;
+      font-family: 'Heebo', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 960px) {
       nav { padding: 12px 20px; }
-      nav ul { display: none; }
+      .menu-toggle { display: inline-flex; }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 100%; right: 0; left: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(26, 61, 43, 0.98);
+        padding: 8px 20px 18px;
+        border-bottom: 1px solid rgba(201,168,76,0.25);
+      }
+      nav.open ul { display: flex; }
+      nav ul li a { display: block; padding: 13px 4px; font-size: 1.02rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      nav ul li:last-child a { border-bottom: none; }
+      nav ul a::after { display: none; }
+      nav ul .nav-cta { text-align: center; margin-top: 12px; }
+      .contact-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
       .contact-wrapper { padding: 32px 22px; }
       .hero-btns { flex-direction: column; align-items: center; }
+      .whatsapp-float { bottom: 20px; left: 20px; width: 56px; height: 56px; }
+      .cookie-bar { right: 12px; left: 84px; bottom: 16px; max-width: none; padding: 12px 14px; font-size: 0.78rem; }
+      .cookie-bar button { margin-top: 6px; padding: 5px 16px; }
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">דילוג לתוכן הראשי</a>
 
   <!-- NAV -->
-  <nav>
-    <div class="nav-logo">
-      <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" width="44" height="44">
+  <nav id="site-nav" aria-label="ניווט ראשי">
+    <a href="#" class="nav-logo" style="text-decoration:none" aria-label="בריאות בטבע - לראש העמוד">
+      <img src="heart-leaves.jpg" alt="" width="44" height="44">
       <div class="nav-logo-text">בריאות <span>בטבע</span></div>
-    </div>
-    <ul>
+    </a>
+    <button class="menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul id="nav-menu">
       <li><a href="#treatments">טיפולים</a></li>
       <li><a href="#about">אודות</a></li>
       <li><a href="#articles">מאמרים</a></li>
@@ -812,9 +979,10 @@
     </ul>
   </nav>
 
+  <main id="main">
   <!-- HERO -->
   <section class="hero">
-    <img src="bg.png" alt="" class="hero-bg">
+    <img src="bg.jpg" alt="" class="hero-bg" fetchpriority="high">
     <div class="hero-inner">
       <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="hero-logo" width="120" height="120">
       <div class="hero-tag">טיפולים אלטרנטיביים בירושלים &amp; ריפוי טבעי</div>
@@ -1051,21 +1219,45 @@
     <div class="text-center reveal">
       <div class="section-label">צרו קשר</div>
       <h2 class="section-title">מוכנים להתחיל?</h2>
-      <p class="section-sub">מלאו את הטופס ואחזור אליכם בהקדם לתיאום תור אישי</p>
+      <p class="section-sub">השאירו פרטים, התקשרו או שלחו הודעה בוואטסאפ, ואחזור אליכם בהקדם לתיאום תור</p>
+    </div>
+    <div class="contact-layout">
+    <div class="contact-details reveal">
+      <a class="contact-item" href="tel:+972534103577">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <span><small>טלפון</small><strong dir="ltr">053-410-3577</strong></span>
+      </a>
+      <a class="contact-item" href="https://wa.me/972534103577?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.6 8.6 0 0 1-4-1L3 20l1.1-4.8A8.4 8.4 0 0 1 12.5 3a8.4 8.4 0 0 1 8.5 8.5z"/></svg>
+        <span><small>וואטסאפ</small><strong>שליחת הודעה</strong></span>
+      </a>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span style="flex:1"><small>כתובת הקליניקה</small><strong>העמלים 31, ירושלים</strong>
+          <span class="nav-apps">
+            <a href="https://waze.com/ul?q=%D7%94%D7%A2%D7%9E%D7%9C%D7%99%D7%9D%2031%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D&navigate=yes" target="_blank" rel="noopener noreferrer">ניווט ב-Waze</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=%D7%94%D7%A2%D7%9E%D7%9C%D7%99%D7%9D%2031%20%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%99%D7%9D" target="_blank" rel="noopener noreferrer">Google Maps</a>
+          </span>
+        </span>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+        <span><small>שעות פעילות</small><strong>א'–ה', 18:00–22:00</strong></span>
+      </div>
     </div>
     <div class="contact-wrapper reveal" style="--reveal-delay:.1s">
       <form onsubmit="handleSubmit(event)">
         <div class="form-group">
-          <label>שם מלא</label>
-          <input type="text" name="fullname" placeholder="הכנס/י שם מלא" required />
+          <label for="f-name">שם מלא</label>
+          <input type="text" id="f-name" name="fullname" placeholder="הכנס/י שם מלא" autocomplete="name" required />
         </div>
         <div class="form-group">
-          <label>טלפון</label>
-          <input type="tel" name="phone" placeholder="050-0000000" required />
+          <label for="f-phone">טלפון</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="050-0000000" autocomplete="tel" inputmode="tel" pattern="[0-9\-\+\s]{9,15}" title="מספר טלפון תקין, למשל 050-1234567" required />
         </div>
         <div class="form-group">
-          <label>סוג טיפול</label>
-          <select name="treatment" required>
+          <label for="f-treatment">סוג טיפול</label>
+          <select id="f-treatment" name="treatment" required>
             <option value="">בחר/י טיפול</option>
             <option>נטורופתיה</option>
             <option>הילינג</option>
@@ -1076,26 +1268,44 @@
           </select>
         </div>
         <div class="form-group">
-          <label>הערות (אופציונלי)</label>
-          <textarea name="notes" placeholder="ספר/י לי קצת על עצמך ועל מה שחשוב לך..."></textarea>
+          <label for="f-notes">הערות (אופציונלי)</label>
+          <textarea id="f-notes" name="notes" placeholder="ספר/י לי קצת על עצמך ועל מה שחשוב לך..."></textarea>
         </div>
         <button type="submit" class="btn-submit">שליחת פנייה ✉️</button>
+        <p class="form-note">הפרטים משמשים רק לחזרה אליכם ולתיאום תור. <a href="/privacy.html">מדיניות פרטיות</a></p>
       </form>
+      <div class="form-success" role="status" aria-live="polite">
+        <h3>תודה, הפנייה התקבלה 🌿</h3>
+        <p>אחזור אליך בהקדם לתיאום. אם נפתח וואטסאפ, אפשר לשלוח משם את ההודעה ולקבל מענה מהיר יותר.</p>
+      </div>
+    </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="footer-logo" width="50" height="50" loading="lazy">
-    <p>© 2026 <strong>בריאות בטבע</strong> — כל הזכויות שמורות</p>
-    <p style="margin-top:8px;font-size:0.85rem;">📍 העמלים 31, ירושלים</p>
-    <p style="margin-top:8px;font-size:0.85rem;">🕕 שעות פתיחה: א'–ה', 18:00–22:00</p>
-    <p style="margin-top:8px;font-size:0.8rem;">בריאות אמיתית מתחילה בטבע 🌿</p>
+    <p><strong>בריאות בטבע</strong> · בריאות אמיתית מתחילה בטבע 🌿</p>
+    <p style="margin-top:8px;font-size:0.85rem;">📍 העמלים 31, ירושלים · 🕕 א'–ה', 18:00–22:00 · 📞 <a class="footer-phone" href="tel:+972534103577" dir="ltr">053-410-3577</a></p>
+    <div class="footer-links" role="navigation" aria-label="קישורים נוספים">
+      <a href="https://www.facebook.com/292135153991754" target="_blank" rel="noopener noreferrer">פייסבוק</a>
+      <a href="https://www.instagram.com/merpaa7777/" target="_blank" rel="noopener noreferrer">אינסטגרם</a>
+      <a href="/privacy.html">מדיניות פרטיות</a>
+      <a href="/accessibility.html">הצהרת נגישות</a>
+    </div>
+    <p class="footer-disclaimer">הטיפולים באתר הם טיפולים משלימים ואינם מהווים תחליף לאבחון או לטיפול רפואי. במקרה של בעיה רפואית יש לפנות לרופא.</p>
+    <p style="margin-top:10px;font-size:0.78rem;">© <span id="year">2026</span> בריאות בטבע. כל הזכויות שמורות.</p>
   </footer>
 
+  <div class="cookie-bar" id="cookie-bar" role="region" aria-label="הודעת עוגיות">
+    האתר משתמש בעוגיות (Cookies) ובכלי מדידה של Google ו-Meta כדי לשפר את חוויית הגלישה ולמדוד את הפרסום. <a href="/privacy.html">פרטים נוספים</a>
+    <br><button type="button" id="cookie-ok">הבנתי</button>
+  </div>
+
   <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp-float" href="https://wa.me/972534103577?text=היי, אשמח לשמוע עוד על הטיפולים" target="_blank" rel="noopener noreferrer" title="שלחו הודעה בוואטסאפ">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <a class="whatsapp-float" href="https://wa.me/972534103577?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%99%D7%A4%D7%95%D7%9C%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" title="שלחו הודעה בוואטסאפ" aria-label="שליחת הודעה בוואטסאפ">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
@@ -1140,9 +1350,36 @@
         fbq('track', 'Lead');
       }
 
-      alert('תודה! נחזור אליך בהקדם 🌿');
       form.reset();
+      var wrapper = form.closest('.contact-wrapper');
+      wrapper.classList.add('sent');
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+
+    (function () {
+      var nav = document.getElementById('site-nav');
+      var toggle = nav.querySelector('.menu-toggle');
+      function setOpen(open) {
+        nav.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+      }
+      toggle.addEventListener('click', function () { setOpen(!nav.classList.contains('open')); });
+      nav.querySelectorAll('ul a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    })();
+
+    (function () {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      var bar = document.getElementById('cookie-bar');
+      var seen = false;
+      try { seen = localStorage.getItem('cookie-ok') === '1'; } catch (e) {}
+      if (!seen) bar.classList.add('show');
+      document.getElementById('cookie-ok').addEventListener('click', function () {
+        bar.classList.remove('show');
+        try { localStorage.setItem('cookie-ok', '1'); } catch (e) {}
+      });
+    })();
 
     (function () {
       var items = document.querySelectorAll('.reveal');
