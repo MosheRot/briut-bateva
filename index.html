@@ -1146,6 +1146,7 @@
 
     (function () {
       var items = document.querySelectorAll('.reveal');
+      var seenSections = {};
       if (!('IntersectionObserver' in window)) {
         items.forEach(function (el) { el.classList.add('is-visible'); });
         return;
@@ -1155,6 +1156,15 @@
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
+
+            var section = entry.target.closest('section[id]');
+            if (section && !seenSections[section.id] && typeof gtag === 'function') {
+              seenSections[section.id] = true;
+              gtag('event', 'section_view', {
+                'send_to': 'G-2645Y9Y97M',
+                'section_id': section.id
+              });
+            }
           }
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
@@ -1174,6 +1184,29 @@
         'send_to': 'G-2645Y9Y97M',
         'link_location': link.className || 'inline',
         'transport_type': 'beacon'
+      });
+    });
+
+    // Track which FAQ questions people actually open
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open || typeof gtag !== 'function') return;
+        var q = item.querySelector('summary');
+        gtag('event', 'faq_open', {
+          'send_to': 'G-2645Y9Y97M',
+          'faq_question': q ? q.textContent.trim() : ''
+        });
+      });
+    });
+
+    // Track nav menu clicks to see which section people jump to
+    document.querySelectorAll('nav ul a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag !== 'function') return;
+        gtag('event', 'nav_click', {
+          'send_to': 'G-2645Y9Y97M',
+          'nav_target': link.getAttribute('href')
+        });
       });
     });
   </script>
