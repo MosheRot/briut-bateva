@@ -1311,6 +1311,53 @@
   </a>
 
   <script>
+    // Where did this visitor come from? Kept for the whole visit and added to WhatsApp messages and form emails.
+    var leadSource = (function () {
+      try {
+        var saved = sessionStorage.getItem('lead-src');
+        if (saved) return saved;
+      } catch (e) {}
+      var params = new URLSearchParams(location.search);
+      var utm = (params.get('utm_source') || '').toLowerCase();
+      var medium = (params.get('utm_medium') || '').toLowerCase();
+      var ua = navigator.userAgent || '';
+      var paid = /cpc|ppc|paid|ad/.test(medium);
+      var names = { instagram: 'אינסטגרם', ig: 'אינסטגרם', facebook: 'פייסבוק', fb: 'פייסבוק', threads: 'Threads', th: 'Threads', an: 'פייסבוק' };
+      var src;
+      if (params.has('gclid') || params.has('gbraid') || params.has('wbraid')) src = 'מודעה בגוגל';
+      else if (names[utm]) src = (paid ? (/^[A-Za-z]/.test(names[utm]) ? 'מודעה ב-' : 'מודעה ב') : '') + names[utm];
+      else if (utm === 'google') src = paid ? 'מודעה בגוגל' : 'גוגל';
+      else if (utm) src = utm;
+      else if (/Instagram/i.test(ua)) src = 'אינסטגרם';
+      else if (/Barcelona|Threads/i.test(ua)) src = 'Threads';
+      else if (/FBAN|FBAV|FB_IAB/i.test(ua)) src = 'פייסבוק';
+      else if (params.has('fbclid')) src = 'פייסבוק / אינסטגרם';
+      else {
+        var host = '';
+        try { host = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+        if (!host || host === location.hostname.replace(/^www\./, '')) src = 'ישירות לאתר';
+        else if (/instagram\./.test(host)) src = 'אינסטגרם';
+        else if (/threads\.(net|com)/.test(host)) src = 'Threads';
+        else if (/facebook\.|fb\.com|fb\.me/.test(host)) src = 'פייסבוק';
+        else if (/google\./.test(host)) src = 'חיפוש בגוגל';
+        else if (/bing\.|yahoo\.|duckduckgo\./.test(host)) src = 'חיפוש באינטרנט';
+        else src = host;
+      }
+      try { sessionStorage.setItem('lead-src', src); } catch (e) {}
+      return src;
+    })();
+
+    (function () {
+      var note = '\n(הגעתי מ: ' + leadSource + ')';
+      document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
+        var href = a.getAttribute('href');
+        var i = href.indexOf('?text=');
+        if (i === -1) return;
+        var text = decodeURIComponent(href.slice(i + 6)) + note;
+        a.setAttribute('href', href.slice(0, i) + '?text=' + encodeURIComponent(text));
+      });
+    })();
+
     function handleSubmit(e) {
       e.preventDefault();
       var form = e.target;
@@ -1324,7 +1371,8 @@
         'שם: ' + fullname + '\n' +
         'טלפון: ' + phone + '\n' +
         'סוג טיפול: ' + treatment +
-        (notes ? '\nהערות: ' + notes : '');
+        (notes ? '\nהערות: ' + notes : '') +
+        '\n(הגעתי מ: ' + leadSource + ')';
       window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank', 'noopener');
 
       fetch('https://api.web3forms.com/submit', {
@@ -1337,7 +1385,8 @@
           name: fullname,
           phone: phone,
           treatment: treatment,
-          notes: notes || '-'
+          notes: notes || '-',
+          source: leadSource
         })
       }).catch(function () {});
 
