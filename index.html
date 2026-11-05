@@ -1347,17 +1347,6 @@
       return src;
     })();
 
-    (function () {
-      var note = '\n(הגעתי מ: ' + leadSource + ')';
-      document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
-        var href = a.getAttribute('href');
-        var i = href.indexOf('?text=');
-        if (i === -1) return;
-        var text = decodeURIComponent(href.slice(i + 6)) + note;
-        a.setAttribute('href', href.slice(0, i) + '?text=' + encodeURIComponent(text));
-      });
-    })();
-
     function handleSubmit(e) {
       e.preventDefault();
       var form = e.target;
@@ -1371,8 +1360,7 @@
         'שם: ' + fullname + '\n' +
         'טלפון: ' + phone + '\n' +
         'סוג טיפול: ' + treatment +
-        (notes ? '\nהערות: ' + notes : '') +
-        '\n(הגעתי מ: ' + leadSource + ')';
+        (notes ? '\nהערות: ' + notes : '');
       window.open('https://wa.me/972534103577?text=' + encodeURIComponent(waText), '_blank', 'noopener');
 
       fetch('https://api.web3forms.com/submit', {
