@@ -118,6 +118,11 @@ nav {
   font-size: 0.98rem;
 }
 .hero-offer strong { color: var(--gold-light); font-weight: 700; }
+.hero-offer { flex-wrap: wrap; justify-content: center; text-align: center; }
+@media (max-width: 600px) {
+  .hero-offer { flex-direction: column; gap: 2px; border-radius: 18px; }
+  .hero-offer .sep { display: none; }
+}
 .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn-wa, .btn-gold, .btn-outline {
   display: inline-flex;
