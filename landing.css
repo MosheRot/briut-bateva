@@ -237,6 +237,8 @@ section { padding: 90px 20px; scroll-margin-top: 68px; }
 .type-card:hover::before { opacity: 1; }
 .type-card h3 { font-family: 'Frank Ruhl Libre', serif; font-size: 1.25rem; color: var(--green-dark); margin-bottom: 10px; }
 .type-card p { font-size: 0.93rem; color: var(--gray); line-height: 1.75; font-weight: 300; }
+.page-figure { max-width: 440px; margin: 40px auto 0; }
+.page-figure img { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 32px rgba(26, 61, 43, 0.14); }
 .types-note { text-align: center; color: var(--gray); margin-top: 34px; font-size: 0.95rem; }
 
 /* ── PROCESS ── */
