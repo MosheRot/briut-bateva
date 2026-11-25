@@ -165,6 +165,7 @@
     :root {
       --gold: #c9a84c;
       --gold-light: #e8c97a;
+      --gold-text: #7a5f17;
       --green-dark: #1a3d2b;
       --green-mid: #2d6a4f;
       --green-accent: #52b788;
@@ -389,7 +390,7 @@
       font-size: 0.75rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-text);
       font-weight: 600;
       margin-bottom: 12px;
     }
@@ -469,9 +470,9 @@
       font-family: 'Frank Ruhl Libre', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--gold-text);
     }
-    .process-item h4 {
+    .process-item h3 {
       font-family: 'Frank Ruhl Libre', serif;
       font-size: 1.15rem;
       font-weight: 700;
@@ -591,7 +592,7 @@
     }
     .article-link {
       display: inline-block;
-      color: var(--gold);
+      color: var(--gold-text);
       font-weight: 600;
       font-size: 0.92rem;
       text-decoration: none;
@@ -629,6 +630,7 @@
       background: url('bg.jpg') center / cover no-repeat;
       opacity: 0.08;
     }
+    #testimonials .section-label { color: var(--gold); }
     #testimonials .section-title { color: var(--white); }
     #testimonials .section-sub { color: rgba(255,255,255,0.6); }
     .testimonials-grid {
@@ -649,9 +651,11 @@
       transition: transform .3s, border-color .3s;
     }
     .testimonial-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.5); }
-    .stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; letter-spacing: 3px; }
+    .stars { color: var(--gold-light); font-size: 1rem; margin-bottom: 16px; letter-spacing: 3px; }
     .testimonial-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.8; margin-bottom: 18px; font-weight: 300; font-style: italic; }
-    .testimonial-card strong { color: var(--gold); font-size: 0.88rem; font-weight: 600; }
+    .review-cta { position: relative; z-index: 1; text-align: center; margin-top: 48px; }
+    .review-cta p { color: rgba(255,255,255,0.78); font-size: 1rem; margin-bottom: 16px; }
+    .testimonial-card strong { color: var(--gold-light); font-size: 0.88rem; font-weight: 600; }
     .why-icon {
       width: 56px; height: 56px;
       display: flex;
@@ -812,7 +816,7 @@
     }
     .footer-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; }
     .footer-links a:hover { color: var(--gold); }
-    .footer-disclaimer { max-width: 620px; margin: 14px auto 0; font-size: 0.76rem; line-height: 1.7; color: rgba(255,255,255,0.4); }
+    .footer-disclaimer { max-width: 620px; margin: 14px auto 0; font-size: 0.76rem; line-height: 1.7; color: rgba(255,255,255,0.62); }
     footer a.footer-phone { color: rgba(255,255,255,0.75); text-decoration: none; }
 
     /* ── ACCESSIBILITY ── */
@@ -1076,21 +1080,21 @@
       <div class="process-item">
         <div class="process-num">01</div>
         <div>
-          <h4>יוצרים קשר</h4>
+          <h3>יוצרים קשר</h3>
           <p>שולחים הודעה בוואטסאפ או ממלאים את הטופס באתר, ומתאמים יחד מועד שנוח לכם.</p>
         </div>
       </div>
       <div class="process-item">
         <div class="process-num">02</div>
         <div>
-          <h4>פגישת היכרות וטיפול ראשון</h4>
+          <h3>פגישת היכרות וטיפול ראשון</h3>
           <p>מתחילים בשיחה קצרה על מה שמטריד אתכם, ורק אחר כך בוחרים יחד את הטיפול המתאים — לא תבנית קבועה מראש.</p>
         </div>
       </div>
       <div class="process-item">
         <div class="process-num">03</div>
         <div>
-          <h4>ממשיכים בקצב שלכם</h4>
+          <h3>ממשיכים בקצב שלכם</h3>
           <p>בהתאם לצורך, קובעים המשך טיפולים — בלי התחייבות לחבילה, ובלי לחץ להמשיך אם זה לא מתאים.</p>
         </div>
       </div>
@@ -1174,6 +1178,10 @@
         <p>"הגעתי למשה אחרי תקופה של עומס ומתחים, וכבר מהרגע הראשון הרגשתי שאני בידיים טובות. העיסוי היה מקצועי, נעים ומדויק, והרגשתי איך הגוף משתחרר והשרירים נרגעים. יצאתי מהקליניקה בתחושה הרבה יותר טובה, רגועה ומשוחררת. משה אדם מקצועי, סבלני ונותן יחס אישי מכל הלב. אין ספק שאחזור לעוד טיפולים! ממליץ בחום לכל מי שרוצה לפנק את הגוף ולתת לעצמו קצת זמן איכות."</p>
         <strong>— נתי ש., 25</strong>
       </div>
+    </div>
+    <div class="review-cta reveal">
+      <p>טופלתם אצלי? אשמח לשמוע איך היה, וזה עוזר לאחרים להכיר את הקליניקה.</p>
+      <a class="btn-outline" href="https://search.google.com/local/writereview?placeid=ChIJ3Tx4QMkpAxURFyq283meNQs" target="_blank" rel="noopener">כתבו ביקורת בגוגל ★</a>
     </div>
   </section>
 
@@ -1462,8 +1470,9 @@
       if (href.indexOf('wa.me/') !== -1) eventName = 'whatsapp_click';
       else if (href.indexOf('tel:') === 0) eventName = 'phone_click';
       else if (href.indexOf('waze.com') !== -1 || href.indexOf('google.com/maps') !== -1) eventName = 'directions_click';
+      else if (href.indexOf('writereview') !== -1) eventName = 'review_click';
       if (!eventName) return;
-      if (typeof fbq === 'function') {
+      if (typeof fbq === 'function' && eventName !== 'review_click') {
         fbq('track', eventName === 'directions_click' ? 'FindLocation' : 'Contact');
       }
       gtag('event', eventName, {
