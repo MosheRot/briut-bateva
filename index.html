@@ -132,7 +132,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&family=Frank+Ruhl+Libre:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="bg.jpg" />
+  <link rel="preload" as="image" href="bg.webp" type="image/webp" />
+  <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2645Y9Y97M"></script>
   <script>
@@ -424,6 +425,116 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
 
+    /* ── HERO MOTION: slow "breathing" landscape + parallax + drifting leaves ── */
+    .hero-bg { animation: heroBreath 28s ease-in-out infinite alternate; transform-origin: 50% 60%; }
+    @keyframes heroBreath { from { transform: scale(1); } to { transform: scale(1.12); } }
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .hero-inner {
+          animation: heroDrift linear both;
+          animation-timeline: scroll(root);
+          animation-range: 0 90vh;
+        }
+        @keyframes heroDrift { to { transform: translateY(-70px); opacity: 0.15; } }
+      }
+    }
+    .leaves { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+    .leaves i {
+      position: absolute; top: -40px;
+      width: 22px; height: 22px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23c9a84c' d='M5 21c0-9 4-15 14-16-1 10-7 14-16 14z'/%3E%3Cpath stroke='%231a3d2b' stroke-width='.8' fill='none' d='M5 21c2-3 4-5 7-7'/%3E%3C/svg%3E") center / contain no-repeat;
+      opacity: 0;
+      animation: leafFall var(--d, 16s) linear var(--delay, 0s) infinite;
+    }
+    .leaves i:nth-child(1) { right: 8%;  --d: 17s; --delay: 0s; }
+    .leaves i:nth-child(2) { right: 24%; --d: 21s; --delay: 5s;  width: 16px; height: 16px; }
+    .leaves i:nth-child(3) { right: 46%; --d: 19s; --delay: 10s; }
+    .leaves i:nth-child(4) { right: 66%; --d: 23s; --delay: 2.5s; width: 14px; height: 14px; }
+    .leaves i:nth-child(5) { right: 84%; --d: 18s; --delay: 7.5s; width: 18px; height: 18px; }
+    .leaves i:nth-child(6) { right: 36%; --d: 25s; --delay: 13s; width: 12px; height: 12px; }
+    @keyframes leafFall {
+      0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+      10%  { opacity: .55; }
+      50%  { transform: translate(-40px, 50vh) rotate(160deg); }
+      90%  { opacity: .45; }
+      100% { transform: translate(25px, 105vh) rotate(320deg); opacity: 0; }
+    }
+    @media (max-width: 640px) { .leaves i:nth-child(n+5) { display: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg, .leaves i { animation: none; }
+      .leaves { display: none; }
+    }
+
+    /* ── BREATHING EXERCISE ── */
+    #breathe { background: linear-gradient(180deg, var(--cream), #eef3ec); }
+    .breathe-box {
+      max-width: 860px; margin: 46px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+    }
+    @media (max-width: 760px) { .breathe-box { grid-template-columns: 1fr; text-align: center; } }
+    .breathe-stage { display: flex; align-items: center; justify-content: center; height: 300px; position: relative; }
+    .breathe-ring {
+      position: absolute; width: 260px; height: 260px; border-radius: 50%;
+      border: 1px dashed rgba(45,106,79,.35);
+    }
+    .breathe-circle {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, var(--green-accent), var(--green-mid) 60%, var(--green-dark));
+      box-shadow: 0 0 0 10px rgba(82,183,136,.14), 0 18px 50px rgba(26,61,43,.35);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-weight: 600; font-size: 1.05rem;
+      transform: scale(1);
+      transition: transform 4s cubic-bezier(.45,.05,.55,.95);
+    }
+    .breathe-circle span { transform: scale(var(--inv, 1)); transition: transform 4s cubic-bezier(.45,.05,.55,.95); }
+    .breathe-copy h3 { font-family: 'Frank Ruhl Libre', serif; font-size: 1.6rem; color: var(--green-dark); margin-bottom: 10px; }
+    .breathe-copy p { color: var(--gray); line-height: 1.8; font-weight: 300; margin-bottom: 18px; }
+    .breathe-status { font-size: 1.15rem; color: var(--green-dark); font-weight: 600; min-height: 1.6em; margin-bottom: 16px; }
+    .breathe-btn {
+      border: none; cursor: pointer; font-family: inherit;
+      background: var(--green-dark); color: var(--white);
+      padding: 13px 30px; border-radius: 50px; font-size: 1rem; font-weight: 600;
+      transition: background .25s, transform .2s;
+    }
+    .breathe-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+    .breathe-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .breathe-more { display: inline-block; margin-top: 16px; color: var(--gold-text); font-weight: 600; text-decoration: none; }
+    .breathe-more:hover { text-decoration: underline; }
+    .breathe-note { font-size: .82rem; color: var(--gray); margin-top: 14px; }
+
+    /* ── TREATMENT ICONS: a gentle sway on hover ── */
+    .treatment-card:hover .treatment-icon svg { animation: iconSway .9s ease-in-out; }
+    @keyframes iconSway { 0%,100% { transform: rotate(0); } 30% { transform: rotate(-10deg) scale(1.08); } 65% { transform: rotate(6deg); } }
+    /* gold button: soft shine sweep */
+    .btn-gold { position: relative; overflow: hidden; }
+    .btn-gold::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 45%; left: -70%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: skewX(-20deg); transition: left .7s ease; pointer-events: none;
+    }
+    .btn-gold:hover::after { left: 130%; }
+    @media (prefers-reduced-motion: reduce) {
+      .treatment-card:hover .treatment-icon svg { animation: none; }
+      .btn-gold::after { display: none; }
+    }
+
+    /* ── SCROLL PROGRESS (pure CSS) ── */
+    .scroll-progress { display: none; }
+    @supports (animation-timeline: scroll()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .scroll-progress {
+          display: block; position: fixed; top: 0; right: 0; left: 0; height: 3px; z-index: 1000;
+          background: linear-gradient(to left, var(--green-accent), var(--gold));
+          transform-origin: right; transform: scaleX(0);
+          animation: progressGrow linear both; animation-timeline: scroll(root);
+        }
+      }
+    }
+    @keyframes progressGrow { to { transform: scaleX(1); } }
+
+    /* smooth cross-page transitions */
+    @view-transition { navigation: auto; }
+
     /* ── TRUST BAR ── */
     .trust-bar {
       background: var(--white);
@@ -627,7 +738,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: url('bg.jpg') center / cover no-repeat;
+      background: url('bg.webp') center / cover no-repeat;
       opacity: 0.08;
     }
     #testimonials .section-label { color: var(--gold); }
@@ -969,7 +1080,7 @@
   <!-- NAV -->
   <nav id="site-nav" aria-label="ניווט ראשי">
     <a href="#" class="nav-logo" style="text-decoration:none" aria-label="בריאות בטבע - לראש העמוד">
-      <img src="heart-leaves.jpg" alt="" width="44" height="44">
+      <img src="heart-leaves-240.webp" alt="" width="44" height="44">
       <div class="nav-logo-text">בריאות <span>בטבע</span></div>
     </a>
     <button class="menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav-menu">
@@ -985,12 +1096,14 @@
     </ul>
   </nav>
 
+  <div class="scroll-progress" aria-hidden="true"></div>
   <main id="main">
   <!-- HERO -->
   <section class="hero">
-    <img src="bg.jpg" alt="" class="hero-bg" fetchpriority="high">
+    <img src="bg.webp" alt="" class="hero-bg" fetchpriority="high">
+    <div class="leaves" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <div class="hero-inner">
-      <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="hero-logo" width="120" height="120">
+      <img src="heart-leaves-240.webp" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="hero-logo" width="120" height="120">
       <div class="hero-tag">טיפולים אלטרנטיביים ורפואה משלימה בירושלים</div>
       <h1>הגוף שלך מבקש הפסקה<br><em>טיפולים טבעיים בירושלים</em></h1>
       <div class="hero-line"></div>
@@ -1097,6 +1210,29 @@
           <h3>ממשיכים בקצב שלכם</h3>
           <p>בהתאם לצורך, קובעים המשך טיפולים — בלי התחייבות לחבילה, ובלי לחץ להמשיך אם זה לא מתאים.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREATHING EXERCISE -->
+  <section id="breathe">
+    <div class="text-center reveal">
+      <div class="section-label">רגע לעצמך</div>
+      <h2 class="section-title">דקה אחת של נשימה</h2>
+      <p class="section-sub">תרגיל נשימה פשוט שאפשר לעשות עכשיו, מול המסך. עקבו אחרי העיגול: הוא גדל כשנושמים פנימה ומתכווץ כשנושפים.</p>
+    </div>
+    <div class="breathe-box reveal" style="--reveal-delay:.1s">
+      <div class="breathe-stage">
+        <div class="breathe-ring" aria-hidden="true"></div>
+        <div class="breathe-circle" id="breatheCircle" aria-hidden="true"><span id="breatheCount"></span></div>
+      </div>
+      <div class="breathe-copy">
+        <h3>4 שניות פנימה, 6 החוצה</h3>
+        <p>נשיפה ארוכה מהשאיפה היא דרך פשוטה להאט את הקצב ולהירגע. חמישה סבבים לוקחים בערך דקה.</p>
+        <div class="breathe-status" id="breatheStatus" aria-live="polite">מוכנים? לחצו על הכפתור כדי להתחיל.</div>
+        <button type="button" class="breathe-btn" id="breatheBtn">התחלת תרגיל הנשימה</button>
+        <div><a class="breathe-more" href="/emotional">לחץ וחרדה מלווים אתכם? כך נראה טיפול רגשי ←</a></div>
+        <p class="breathe-note">התרגיל לא מחליף טיפול או ייעוץ רפואי.</p>
       </div>
     </div>
   </section>
@@ -1299,7 +1435,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <img src="heart-leaves.jpg" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="footer-logo" width="50" height="50" loading="lazy">
+    <img src="heart-leaves-240.webp" alt="בריאות בטבע - קליניקה הוליסטית בירושלים" class="footer-logo" width="50" height="50" loading="lazy">
     <p><strong>בריאות בטבע</strong> · בריאות אמיתית מתחילה בטבע 🌿</p>
     <p style="margin-top:8px;font-size:0.85rem;">📍 העמלים 31, ירושלים · 🕕 א'–ה', 18:00–22:00 · 📞 <a class="footer-phone" href="tel:+972534103577" dir="ltr">053-410-3577</a></p>
     <div class="footer-links" role="navigation" aria-label="קישורים נוספים">
@@ -1434,6 +1570,44 @@
       });
     })();
 
+    // breathing exercise: 4s in, 6s out, 5 rounds; text-only steps when reduced motion is on
+    (function () {
+      var btn = document.getElementById('breatheBtn');
+      if (!btn) return;
+      var circle = document.getElementById('breatheCircle');
+      var count = document.getElementById('breatheCount');
+      var status = document.getElementById('breatheStatus');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var running = false, timers = [];
+      var IN = 4, OUT = 6, ROUNDS = 5;
+      function later(fn, s) { timers.push(setTimeout(fn, s * 1000)); }
+      function countdown(n) {
+        for (var i = 0; i < n; i++) (function (k) { later(function () { count.textContent = n - k; }, k); })(i);
+      }
+      function phase(scale, secs) {
+        circle.style.transitionDuration = secs + 's';
+        count.style.transitionDuration = secs + 's';
+        if (!reduce) { circle.style.transform = 'scale(' + scale + ')'; count.style.setProperty('--inv', (1 / scale).toFixed(3)); }
+      }
+      function stop(msg) {
+        timers.forEach(clearTimeout); timers = []; running = false;
+        phase(1, 1.2); count.textContent = '';
+        status.textContent = msg;
+        btn.textContent = 'עוד סבב נשימה';
+      }
+      btn.addEventListener('click', function () {
+        if (running) { stop('עצרתם. אפשר לחזור לזה בכל רגע.'); return; }
+        running = true; btn.textContent = 'עצירה';
+        if (typeof gtag === 'function') gtag('event', 'breathing_start', { 'send_to': 'G-2645Y9Y97M' });
+        var t = 0;
+        for (var r = 0; r < ROUNDS; r++) (function (round) {
+          later(function () { status.textContent = 'שאיפה דרך האף… (סבב ' + (round + 1) + ' מתוך ' + ROUNDS + ')'; phase(1.9, IN); countdown(IN); }, t);
+          later(function () { status.textContent = 'נשיפה איטית דרך הפה…'; phase(1, OUT); countdown(OUT); }, t + IN);
+          t += IN + OUT;
+        })(r);
+        later(function () { stop('כל הכבוד. איך מרגישים עכשיו?'); }, t);
+      });
+    })();
     (function () {
       var items = document.querySelectorAll('.reveal');
       var seenSections = {};

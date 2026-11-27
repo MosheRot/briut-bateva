@@ -259,7 +259,7 @@ section { padding: 90px 20px; scroll-margin-top: 68px; }
 
 /* ── ABOUT ── */
 #about { background: var(--green-dark); position: relative; overflow: hidden; }
-#about::before { content: ''; position: absolute; inset: 0; background: url('bg.jpg') center / cover no-repeat; opacity: 0.08; }
+#about::before { content: ''; position: absolute; inset: 0; background: url('bg.webp') center / cover no-repeat; opacity: 0.08; }
 #about .section-title { color: var(--white); }
 .about-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; text-align: center; }
 .about-inner img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin-bottom: 20px; }
@@ -495,3 +495,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .article-cta p { margin-bottom: 14px; }
 .article-cta .btn-wa { display: inline-flex; color: #fff; }
 .article-note { margin-top: 28px; font-size: 0.86rem !important; color: var(--gray) !important; }
+
+/* smooth cross-page transitions + slowly 'breathing' hero landscape */
+@view-transition { navigation: auto; }
+.hero-bg { animation: heroBreath 28s ease-in-out infinite alternate; transform-origin: 50% 60%; }
+@keyframes heroBreath { from { transform: scale(1); } to { transform: scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; } }
